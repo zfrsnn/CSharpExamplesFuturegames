@@ -1,5 +1,4 @@
 using System;
-using UnityEditor;
 using UnityEngine;
 
 namespace Serialization.Save {
@@ -24,7 +23,7 @@ namespace Serialization.Save {
             }
             GUILayout.Space(10);
             if(GUILayout.Button("Load Data")) {
-                playerDataSo.playerData = SaveSystem.Load();
+                playerDataSo.playerData = SaveSystem.Load<PlayerData>();
             }
             if(GUILayout.Button("Load")) {
                 try {
@@ -36,9 +35,10 @@ namespace Serialization.Save {
                 }
 
                 EnemyData enemyData = SaveSystem.Load<EnemyData>();
+                //do something with enemydata
             }
             if(GUILayout.Button("Save SO asset only")) {
-                AssetDatabase.SaveAssets();
+                UnityEditor.AssetDatabase.SaveAssets();
             }
         }
 #endif
